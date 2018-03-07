@@ -12,7 +12,7 @@
             <i class="el-icon-info"></i>
             <span slot="title">玩家信息管理</span>
           </el-menu-item>
-          <el-menu-item index="2" @click="jump('RecordQuery')">
+          <el-menu-item index="2" @click="jump('LotteryManager')">
             <i class="el-icon-search"></i>
             <span slot="title">开奖记录查询</span>
           </el-menu-item>

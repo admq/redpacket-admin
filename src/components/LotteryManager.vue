@@ -1,18 +1,26 @@
 <template>
-  <div id="user-manager">
+  <div id="lottery-manager">
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
-      <el-form-item label="昵称">
-        <el-input v-model="formInline.user" placeholder="昵称" size="small"></el-input>
+      <el-form-item label="开奖时间">
+        <!--<el-input v-model="formInline.user" placeholder="昵称" size="mini"></el-input>-->
+        <el-date-picker
+          v-model="formInline.user"
+          type="datetimerange"
+          size="small"
+          start-placeholder="开始时间"
+          end-placeholder="结束时间"
+          :default-time="['12:00:00']">
+        </el-date-picker>
       </el-form-item>
-      <el-form-item label="手机号">
-        <el-input v-model="formInline.tel" placeholder="手机号" size="small"></el-input>
+      <!--<el-form-item label="手机号">
+        <el-input v-model="formInline.tel" placeholder="手机号" size="mini"></el-input>
       </el-form-item>
       <el-form-item label="等级">
-        <el-select v-model="formInline.region" placeholder="等级" size="small">
+        <el-select v-model="formInline.region" placeholder="等级" size="mini">
           <el-option label="1V" value="1"></el-option>
           <el-option label="2V" value="2"></el-option>
         </el-select>
-      </el-form-item>
+      </el-form-item>-->
       <el-form-item>
         <el-button type="primary" size="mini" @click="onSubmit">查询</el-button>
       </el-form-item>
@@ -21,8 +29,13 @@
     <el-table
       :data="tableData"
       stripe
+      highlight-current-row
       size="small"
       style="width: 100%">
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
       <el-table-column
         prop="date"
         label="日期"
@@ -58,7 +71,7 @@
 
 <script>
 export default {
-  name: 'user-manager',
+  name: 'lottery-manager',
   data () {
     return {
       tableData: [{
@@ -162,7 +175,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#user-manager {
+#lottery-manager {
   text-align: left;
 }
 </style>
